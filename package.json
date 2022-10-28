@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "reset": "node ./src/utils/seeds/painting.seed.js",
+    "resetPaintings": "node ./src/utils/seeds/painting.seed.js",
+    "resetSculptures": "node ./src/utils/seeds/sculpture.seed.js",
+    "resetArchitectures": "node ./src/utils/seeds/architecture.seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
