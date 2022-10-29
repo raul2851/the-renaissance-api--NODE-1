@@ -32,9 +32,9 @@ router.get("/:id", async (req, res) => {
       }
       const newPainting = new Painting(painting);
       const paintingCreated = await newPainting.save();
-      return res.status(201).json(paintingCreated);
+      return res.status(200).json(paintingCreated);
     } catch (error) {
-      return res.status(500).json("Error al crear la nueva obra");
+      return res.status(500).json("Error al crear la nueva obra, nunca vas a llegar a ser maestro del pincel");
     }
   });
   
@@ -58,11 +58,11 @@ router.get("/:id", async (req, res) => {
       return res
         .status(200)
         .json({
-          mensaje: "Se ha conseguido editar la obra",
+          mensaje: "Se ha conseguido editar la obra, por esta vez te lo paso",
           paingtingModificated: paintingModificated,
         });
     } catch (error) {
-      return res.status(500).json("Error al editar la obra");
+      return res.status(500).json("Error al editar la obra... igual está bien como está ¿no?");
     }
   });
   
@@ -70,9 +70,9 @@ router.get("/:id", async (req, res) => {
     try {
       const id = req.params.id;
       const paintingToDelete = await Painting.findByIdAndDelete(id);
-      return res.status(200).json("Se ha conseguido borrar la obra");
+      return res.status(200).json("Se ha conseguido borrar la obra, si sigues borrando cosas, te hundiras en el olvido medieval");
     } catch (error) {
-      return res.status(500).json("Error al borrar la obra");
+      return res.status(500).json("Error al borrar la obra, ¿ni siquiera esto haces bien?");
     }
   });
   

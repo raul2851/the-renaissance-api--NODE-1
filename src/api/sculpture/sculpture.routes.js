@@ -31,9 +31,9 @@ router.get("/:id", async (req, res) => {
       }
       const newSculptures = new Sculpture(sculpture);
       const sculptureCreated = await newSculptures.save();
-      return res.status(201).json(sculptureCreated);
+      return res.status(200).json(sculptureCreated);
     } catch (error) {
-      return res.status(500).json("Error al crear la nueva escultura");
+      return res.status(500).json("Error al crear la nueva escultura, Miguel Angel con 5 años ya dominaba esta técnica");
     }
   });
   
@@ -57,11 +57,11 @@ router.get("/:id", async (req, res) => {
       return res
         .status(200)
         .json({
-          mensaje: "Se ha conseguido editar la escultura",
+          mensaje: "Se ha conseguido editar la escultura, menos mal que aún no habíamos inagurado",
           sculptureModificated: sculptureModificated,
         });
     } catch (error) {
-      return res.status(500).json("Error al editar la escultura");
+      return res.status(500).json("Error al editar la escultura, tu no eres digno");
     }
   });
   
@@ -69,9 +69,9 @@ router.get("/:id", async (req, res) => {
     try {
       const id = req.params.id;
       const sculptureToDelete = await Sculpture.findByIdAndDelete(id);
-      return res.status(200).json("Se ha conseguido borrar la escultura");
+      return res.status(200).json("Se ha conseguido borrar la escultura, y nos ha costado mucho trabajo. Al Toro de Falaris por mareante.");
     } catch (error) {
-      return res.status(500).json("Error al borrar la escultura");
+      return res.status(500).json("Error al borrar la escultura, ¿no ves que es de mármol?");
     }
   });
   

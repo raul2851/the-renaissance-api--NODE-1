@@ -32,7 +32,7 @@ router.delete("/delete/:id", async (req, res) => {
     try {
       const id = req.params.id;
       const galleryToDelete = await Gallery.findByIdAndDelete(id);
-      return res.status(200).json("Se ha conseguido borrar la galería");
+      return res.status(200).json("Se ha conseguido borrar la galería, más gente al paro");
     } catch (error) {
       return res.status(500).json("Error al borrar la galería");
     }
@@ -62,7 +62,7 @@ router.put('/add-work', async (req, res, next) => {
                 { new: true }
             );
         } 
-        return res.status(200).json("Obra(s) añadida con éxito");
+        return res.status(200).json("Obra añadida con éxito, ya podemos cobrar más por la entrada");
     } catch (error) {
         return next(error);
     }
@@ -77,7 +77,7 @@ router.delete('/delete-work', async (req,res, next) =>{
         const deletedPainting = gallery.works.splice(paintingToDelete, 1)
         const galleryToUpdated = await Gallery.findByIdAndUpdate(galleryId, gallery);
 
-        return res.status(201).json('Obra eliminada correctamente')
+        return res.status(201).json('Obra eliminada correctamente, has gastado materiales para nada.')
         
     } catch (error) {
         return next(error);
