@@ -55,7 +55,7 @@ router.get('/:id', async (req, res) => {
       const architectureModificated = await Architecture.findByIdAndUpdate(id, architectureModification);
       return res.status(200).json({mensaje: "Se ha conseguido editar la arquitectura", architectureModificated: architectureModificated});
     } catch (error) {
-      return res.status(500).json('Error al editar el personaje');
+      return res.status(500).json('Error al editar la arquitectura');
     }
   
   })
