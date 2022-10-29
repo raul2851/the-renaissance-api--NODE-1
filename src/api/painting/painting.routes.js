@@ -1,5 +1,6 @@
 const express = require('express');
 const Painting = require('./painting.model');
+const upload = require("../middlewares/file");
 const router = express.Router();
 require('dotenv').config()
 
@@ -23,7 +24,7 @@ router.get("/:id", async (req, res) => {
     }
   });
   
-  router.post("/create", async (req, res) => {
+  router.post("/create", upload.single('img'), async (req, res) => {
     try {
       const painting = req.body;
       if (req.file) {
@@ -37,7 +38,7 @@ router.get("/:id", async (req, res) => {
     }
   });
   
-  router.put("/edit/:id", async (req, res) => {
+  router.put("/edit/:id", upload.single('img'),async (req, res) => {
     try {
       const id = req.params.id;
       const painting = req.body;

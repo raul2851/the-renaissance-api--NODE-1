@@ -77,8 +77,6 @@ router.delete('/delete-work', async (req,res, next) =>{
         const deletedPainting = gallery.works.splice(paintingToDelete, 1)
         const galleryToUpdated = await Gallery.findByIdAndUpdate(galleryId, gallery);
 
-        console.log(gallery);
-
         return res.status(201).json('Obra eliminada correctamente')
         
     } catch (error) {

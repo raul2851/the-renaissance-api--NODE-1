@@ -1,5 +1,6 @@
 const express = require('express');
 const Sculpture = require('./sculpture.model');
+const upload = require("../middlewares/file");
 const router = express.Router();
 require('dotenv').config()
 
@@ -22,7 +23,7 @@ router.get("/:id", async (req, res) => {
     }
   });
   
-  router.post("/create", async (req, res) => {
+  router.post("/create", upload.single('img'), async (req, res) => {
     try {
       const sculpture = req.body;
       if (req.file) {
@@ -36,7 +37,7 @@ router.get("/:id", async (req, res) => {
     }
   });
   
-  router.put("/edit/:id", async (req, res) => {
+  router.put("/edit/:id", upload.single('img'), async (req, res) => {
     try {
       const id = req.params.id;
       const sculpture = req.body;

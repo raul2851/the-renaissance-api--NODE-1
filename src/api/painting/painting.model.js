@@ -9,7 +9,6 @@ const paintingSchema = new Schema(
     year: {type: Number, required:false, trim:true },
     img: {type: String, required: true, default: "https://i.pinimg.com/736x/4d/58/23/4d582369ccb842fd09dd96a9258e79bd.jpg"},
     location:{type: String, required: false },
-
   },
   {
     timestamps: true,
