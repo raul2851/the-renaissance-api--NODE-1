@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Sculpture = require("../../api/scuplture/sculpture.model");
+const Sculpture = require("../../api/sculpture/sculpture.model");
 require("dotenv").config();
 
 const sculptures = [
