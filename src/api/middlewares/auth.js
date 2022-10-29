@@ -34,7 +34,7 @@ const isAdmin = async (req, res, next) => {
       req.user = userLogged;
       next();
     } else {
-        return next("No eres un Mecenas, vete a limpiar establos");
+      return next("No eres un Mecenas, vete a limpiar establos");
     }
   } catch (error) {
     return next("No puedes pasar");
@@ -42,3 +42,6 @@ const isAdmin = async (req, res, next) => {
 };
 
 module.exports = { isAuth, isAdmin };
+
+
+

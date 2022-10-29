@@ -6,6 +6,7 @@ const sculpturesRoutes = require("./src/api/sculpture/sculpture.routes");
 const architecturesRoutes = require("./src/api/architecture/architecture.routes");
 const userRouter = require("./src/api/users/user.routes");
 const db = require("./src/utils/database/db");
+const cors = require('cors');
 require("dotenv").config();
 const cloudinary = require("cloudinary").v2;
 
@@ -19,6 +20,11 @@ cloudinary.config({
 
 const PORT = 3000;
 const server = express();
+
+server.use(cors({
+    origin: "*",
+    credentials: true
+}))
 
 server.use(express.json({ limit: "5mb" }));
 server.use(express.urlencoded({ extended: false }));

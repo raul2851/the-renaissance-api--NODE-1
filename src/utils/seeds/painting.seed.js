@@ -1,110 +1,109 @@
 const mongoose = require("mongoose");
 const Painting = require("../../api/painting/painting.model");
-require("dotenv").config();
+require('dotenv').config()
 
 const paintings = [
   {
     name: "Sagrada Trinidad con la Virgen, San Juan y donantes",
     painter: "Masaccio",
     year: 1427,
-    img: "https://cdn.culturagenial.com/es/imagenes/masaccio-trinita-cke.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062544/paintings-assets-node/Masaccio-La-Trinidad-hacia-1425-e1531234176718_iekf4x.jpg",
     location: "Basílica de Santa Maria Novella, Florencia",
   },
   {
     name: "La Anunciación",
     painter: "Fran Angélico",
     year: 1426,
-    img: "https://cdn.culturagenial.com/es/imagenes/la-anunciacion-de-fra-angelico-cke.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062545/paintings-assets-node/770_5_Fra_Angelico-Anunciacio%CC%81n-Museo_del_prado_ffowq3.jpg",
     location: "Museo del Prado, Madrid",
   },
   {
     name: "El matrimonio Arnolfini",
     painter: "Jan van Eyck",
     year: 1434,
-    img: "https://cdn.culturagenial.com/es/imagenes/el-matrimonio-alnorfini-cke.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062547/paintings-assets-node/simbolismo-matrimonio-Arnolfini-1_reaw6i.jpg",
     location: "Galería Nacional de Londres",
   },
   {
     name: "La virgen del canónigo Van der Paele",
     painter: "Jan van Eyck",
     year: 1436,
-    img: "https://cdn.culturagenial.com/es/imagenes/1386px-jan-van-eyck-069-cke.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062562/paintings-assets-node/Jan_van_Eyck_069_j6njji.jpg",
     location: "Museo Groeninge, Brujas",
   },
   {
     name: "La batalla de San Romano",
     painter: "Paolo Uccello",
     year: 1438,
-    img: "https://cdn.culturagenial.com/es/imagenes/batalla-de-san-romano-cke.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062548/paintings-assets-node/Paolo_Uccello_016_fqskrx.jpg",
     location: "Mouse de Louvre, París",
   },
   {
     name: "Frescos del techo de la Capilla Sixtina",
     painter: "Miguel Ángel Buonarroti",
     year: 1512,
-    img: "https://cdn.culturagenial.com/es/imagenes/frescos-de-la-capilla-sixtina.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062544/paintings-assets-node/capilla-sixtina-roma_e96jpm.jpg",
     location: "Museo del Vaticano",
   },
   {
     name: "La escuela de Atenas",
     painter: "Rafael Sanzio",
     year: 1511,
-    img: "https://cdn.culturagenial.com/es/imagenes/sanzio-la-escuela-de-atenas-1510-1511-fresco-500-cm-770-cm-museos-del-vaticano-vaticano.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062601/paintings-assets-node/La_scuola_di_Atene_afyhsk.jpg",
     location: "Museo del Vaticano",
   },
   {
     name: "Mona Lisa",
     painter: "Leonardo da Vinci",
     year: 1506,
-    img: "https://cdn.culturagenial.com/es/imagenes/1455px-leonardo-da-vinci-mona-lisa-louvre-paris-cke.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062544/paintings-assets-node/mona_lisa_pn4bep.jpg",
     location: "Museo de Louvre, París",
   },
   {
     name: "Autorretrato",
     painter: "Alberto Durero",
     year: 1500,
-    img: "https://cdn.culturagenial.com/es/imagenes/durero-autorretrato-cke.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062593/paintings-assets-node/autorretrato_alberto_durero_be3bhm.jpg",
     location: "Pinacoteca Antigua de Munich",
   },
   {
     name: "La última cena",
     painter: "Leonardo da Vinci",
     year: 1498,
-    img: "https://cdn.culturagenial.com/es/imagenes/la-ultima-cena-1498-tempera-y-oleo-en-yeso-brea-y-masilla-4-6-x-8-8-mts-refectorio-del-convento-santa-maria-delle-grazie-milan-italia.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062544/paintings-assets-node/misterios-y-curiosidades-sobre-la-ultima-cena-de-cristo-655x368_pambeo.jpg",
     location: "Refectorio del Convento de Santa Maria delle Grazie, Milán",
   },
   {
     name: "La virgen de las Rocas",
     painter: "Leonardo de Vinci",
     year: 1486,
-    img: "https://cdn.culturagenial.com/es/imagenes/1362px-leonardo-da-vinci-vergine-delle-rocce-louvre-cke.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062593/paintings-assets-node/autorretrato_alberto_durero_be3bhm.jpg",
     location: "Museo del Louvre, París",
   },
   {
     name: "El nacimiento de Venus",
     painter: "Sandro Boticelli",
     year: 1485,
-    img: "https://cdn.culturagenial.com/es/imagenes/1720px-sandro-botticelli-la-nascita-di-venere-google-art-project-edited-1-cke.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667062544/paintings-assets-node/botticelli-birth-venus_q9kfhf.jpg",
     location: "Galería Uffizi, Florencia",
   },
 ];
-mongoose
-  .connect(process.env.DB_URL)
+mongoose.connect(process.env.DB_URL)
   .then(async () => {
     const allPaintings = await Painting.find().lean();
-
-    if (!allPaintings.length) {
-      console.log("[seed]: No estoy encontrando los cuadros ... ");
+    
+    if(!allPaintings.length) {
+      console.log('[seed]: No estoy encontrando los cuadros ... ')
     } else {
       console.log(`[seed]: Encontrados ${allPaintings.length} cuadros.`);
       await Painting.collection.drop();
-      console.log("[seed]: Colección Paintings eliminada correctamente");
+      console.log('[seed]: Colección Paintings eliminada correctamente');
     }
   })
-  .catch((error) => console.log("[seed]: Error eliminando la colección -->", error))
-  .then(async () => {
+  .catch((error) => console.log('[seed]: Error eliminando la colección -->', error))
+  .then(async() => {
     await Painting.insertMany(paintings);
-    console.log("[seed]: Nuevos cuadros añadidos con éxito");
+    console.log('[seed]: Nuevos cuadros añadidos con éxito');
   })
-  .catch((error) => console.log("[seed]: Error añadiendo los cuadros", error))
+  .catch((error) => console.log('[seed]: Error añadiendo los cuadros', error))
   .finally(() => mongoose.disconnect());

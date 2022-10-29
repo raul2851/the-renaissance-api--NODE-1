@@ -7,23 +7,23 @@ const architectures = [
     name: "Palacio Medici Riccardi",
     architect: "Michelozzo di Bartolomeo",
     year: 1460,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Michelozzo-di-Bartolomeo.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055456/architectures-assets-node/Palacio_Medici_Riccardi_mizykj.jpg",
     location: "Florencia, Italia",
   },
-
+ 
   {
     name: "Spedale degli Innocenti",
     architect: "Filippo Brunelleschi",
     year: 1445,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Spedale-degli-Innocenti.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055456/architectures-assets-node/Spedale_degli_Innocenti_qon650.jpg",
     location: "Florencia, Italia",
-  },
+  }, 
 
   {
     name: "Convento De San Esteban",
     architect: "Juan de Álava y RG de Hontañón",
     year: 1610,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Convento-De-San-Esteban.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055456/architectures-assets-node/Convento_De_San_Esteban_cxcuxg.jpg",
     location: "Salamanca, España",
   },
 
@@ -31,7 +31,7 @@ const architectures = [
     name: "Catedral del Arcángel Miguel",
     architect: "Aleviz Fryazin Noviy",
     year: 1508,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Catedral-del-Arc%C3%A1ngel.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055456/architectures-assets-node/Catedral_del_Arca%CC%81ngel_Miguel_ogckcq.jpg",
     location: "Moscú, Rusia",
   },
 
@@ -39,7 +39,7 @@ const architectures = [
     name: "Basílica de San Andrés",
     architect: "Leon Battista Alberti",
     year: 1790,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Bas%C3%ADlica-de-San-Andr%C3%A9s.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055455/architectures-assets-node/Basi%CC%81lica_de_San_Andre%CC%81s_fhhzkr.jpg",
     location: "Mantua, Lombardía, Italia.",
   },
 
@@ -47,7 +47,7 @@ const architectures = [
     name: "Catedral de San Pablo",
     architect: "Sir Christopher Wren",
     year: 1710,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Catedral-de-San-Pablo.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055456/architectures-assets-node/Catedral-de-San-Pablo_bypcjq.jpg",
     location: "Londres, Reino Unido",
   },
 
@@ -55,7 +55,7 @@ const architectures = [
     name: "Catedral de Jaén",
     architect: "Andrés de Vandelvira",
     year: 1724,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Catedral-de-Ja%C3%A9n.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055456/architectures-assets-node/Catedral-de-Jae%CC%81n_ziot7p.jpg",
     location: "Jaén, España",
   },
 
@@ -63,7 +63,7 @@ const architectures = [
     name: "Basílica de San Lorenzo",
     architect: "Filippo Brunelleschi",
     year: 1470,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Bas%C3%ADlica-de-San-Lorenzo.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055455/architectures-assets-node/Basi%CC%81lica-de-San-Lorenzo_oyy7db.jpg",
     location: "Florencia, Italia",
   },
 
@@ -71,7 +71,7 @@ const architectures = [
     name: "Ayuntamiento de Augsburgo",
     architect: "Elias Holl",
     year: 1624,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Ayuntamiento.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055455/architectures-assets-node/Ayuntamiento-Augsburgo_j81jh4.jpg",
     location: "Augsburgo, Baviera, Alemania",
   },
 
@@ -79,7 +79,7 @@ const architectures = [
     name: "Ayuntamiento de Bremen",
     architect: "Luder Von Bentheim",
     year: 1409,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Ayuntamiento-de-Bremen.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055455/architectures-assets-node/Ayuntamiento-de-Bremen_n1h7ls.jpg",
     location: "Bremen, Alemania",
   },
 
@@ -87,7 +87,7 @@ const architectures = [
     name: "Ayuntamiento de Amberes",
     architect: "Cornelis Floris de Vriendt",
     year: 1565,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Ayuntamiento-de-Amberes.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055455/architectures-assets-node/Ayuntamiento-de-Amberes_e3ogdi.jpg",
     location: "Amberes, Bélgica",
   },
 
@@ -95,7 +95,7 @@ const architectures = [
     name: "Ayuntamiento de Poznań",
     architect: "Giovanni Battista di Quadro",
     year: 1404,
-    img: "https://destinoinfinito.com/wp-content/uploads/2014/06/Ayuntamiento-de-Poznan.jpg",
+    img: "https://res.cloudinary.com/dpz8cjurk/image/upload/v1667055455/architectures-assets-node/Ayuntamiento-de-Poznan_czjhuu.jpg",
     location: "Poznán, Polonia",
   },
 ];
@@ -120,3 +120,4 @@ mongoose
   })
   .catch((error) => console.log("[seed]: Error añadiendo las arquitecturas", error))
   .finally(() => mongoose.disconnect());
+
