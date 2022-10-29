@@ -1,6 +1,8 @@
 const express = require('express');
 const Painting = require('./painting.model');
 const upload = require("../middlewares/file");
+const { deleteFile } = require('../../api/middlewares/deleteFile');
+const { isAuth, isAdmin } = require('../../api/middlewares/auth');
 const router = express.Router();
 require('dotenv').config()
 
@@ -14,7 +16,7 @@ router.get('/', async (req, res,) =>{
     }
 })
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", [isAuth], async (req, res) => {
     try {
       const id = req.params.id;
       const paintingToFind = await Painting.findById(id);
@@ -24,7 +26,7 @@ router.get("/:id", async (req, res) => {
     }
   });
   
-  router.post("/create", upload.single('img'), async (req, res) => {
+  router.post("/create", [isAdmin], upload.single('img'), async (req, res) => {
     try {
       const painting = req.body;
       if (req.file) {
@@ -38,7 +40,7 @@ router.get("/:id", async (req, res) => {
     }
   });
   
-  router.put("/edit/:id", upload.single('img'),async (req, res) => {
+  router.put("/edit/:id", [isAuth],  upload.single('img'),async (req, res) => {
     try {
       const id = req.params.id;
       const painting = req.body;
@@ -66,7 +68,7 @@ router.get("/:id", async (req, res) => {
     }
   });
   
-  router.delete("/delete/:id", async (req, res) => {
+  router.delete("/delete/:id", [isAuth], async (req, res) => {
     try {
       const id = req.params.id;
       const paintingToDelete = await Painting.findByIdAndDelete(id);

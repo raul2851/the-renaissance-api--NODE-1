@@ -1,6 +1,8 @@
 const express = require("express");
-const upload = require("../middlewares/file");
 const Architecture = require("./architecture.model");
+const upload = require("../middlewares/file");
+const { deleteFile } = require('../../api/middlewares/deleteFile');
+const { isAuth, isAdmin } = require('../../api/middlewares/auth');
 const router = express.Router();
 require("dotenv").config();
 
@@ -13,7 +15,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", [isAuth], async (req, res) => {
   try {
     const id = req.params.id;
     const architectureToFind = await Architecture.findById(id);
@@ -23,7 +25,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/create", upload.single("img"), async (req, res) => {
+router.post("/create", [isAdmin], upload.single("img"), async (req, res) => {
   try {
     const architecture = req.body;
     if (req.file) {
@@ -37,7 +39,7 @@ router.post("/create", upload.single("img"), async (req, res) => {
   }
 });
 
-router.put("/edit/:id", upload.single("img"), async (req, res) => {
+router.put("/edit/:id", [isAuth], upload.single("img"), async (req, res) => {
   try {
     const id = req.params.id;
     const architecture = req.body;
@@ -65,7 +67,7 @@ router.put("/edit/:id", upload.single("img"), async (req, res) => {
   }
 });
 
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id", [isAuth], async (req, res) => {
   try {
     const id = req.params.id;
     const architectureToDelete = await Architecture.findByIdAndDelete(id);

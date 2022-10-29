@@ -2,6 +2,8 @@ const express = require('express');
 const Sculpture = require('./sculpture.model');
 const upload = require("../middlewares/file");
 const router = express.Router();
+const { deleteFile } = require('../../api/middlewares/deleteFile');
+const { isAuth, isAdmin } = require('../../api/middlewares/auth');
 require('dotenv').config()
 
 router.get('/', async (req, res,) =>{
@@ -13,7 +15,7 @@ router.get('/', async (req, res,) =>{
         return res.status(500).json(error)
     }
 })
-router.get("/:id", async (req, res) => {
+router.get("/:id", [isAuth], async (req, res) => {
     try {
       const id = req.params.id;
       const sculptureToFind = await Sculpture.findById(id);
@@ -23,7 +25,7 @@ router.get("/:id", async (req, res) => {
     }
   });
   
-  router.post("/create", upload.single('img'), async (req, res) => {
+  router.post("/create", [isAdmin], upload.single('img'), async (req, res) => {
     try {
       const sculpture = req.body;
       if (req.file) {
@@ -37,7 +39,7 @@ router.get("/:id", async (req, res) => {
     }
   });
   
-  router.put("/edit/:id", upload.single('img'), async (req, res) => {
+  router.put("/edit/:id", [isAuth], upload.single('img'), async (req, res) => {
     try {
       const id = req.params.id;
       const sculpture = req.body;
@@ -65,7 +67,7 @@ router.get("/:id", async (req, res) => {
     }
   });
   
-  router.delete("/delete/:id", async (req, res) => {
+  router.delete("/delete/:id", [isAuth],async (req, res) => {
     try {
       const id = req.params.id;
       const sculptureToDelete = await Sculpture.findByIdAndDelete(id);
