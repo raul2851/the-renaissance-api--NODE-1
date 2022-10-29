@@ -8,22 +8,20 @@ const userSchema = new Schema(
     email: { type: String, required: true, unique: true, trim: true },
     password: { type: String, required: true, trim: true },
     age: { type: Number, required: true },
-    rol: {type: String, enum: ["admin", "user"], default: "user"},
+    rol: { type: String, enum: ["admin", "user"], default: "user" },
     firstName: { type: String, required: true, trim: true },
     lastName: { type: String, required: true, trim: true },
     photo: { type: String, required: false, trim: true },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 
 userSchema.pre("save", function (next) {
+  this.password = bcrypt.hashSync(this.password, 10);
+  next();
+});
 
-    this.password = bcrypt.hashSync(this.password, 10);
-    next();
-
-})
-
-const User = mongoose.model('users', userSchema);
+const User = mongoose.model("users", userSchema);
 module.exports = User;

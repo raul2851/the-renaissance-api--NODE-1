@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Painting = require("../../api/painting/painting.model");
-require('dotenv').config()
+require("dotenv").config();
 
 const paintings = [
   {
@@ -88,22 +88,23 @@ const paintings = [
     location: "Galería Uffizi, Florencia",
   },
 ];
-mongoose.connect(process.env.DB_URL)
+mongoose
+  .connect(process.env.DB_URL)
   .then(async () => {
     const allPaintings = await Painting.find().lean();
-    
-    if(!allPaintings.length) {
-      console.log('[seed]: No estoy encontrando los cuadros ... ')
+
+    if (!allPaintings.length) {
+      console.log("[seed]: No estoy encontrando los cuadros ... ");
     } else {
       console.log(`[seed]: Encontrados ${allPaintings.length} cuadros.`);
       await Painting.collection.drop();
-      console.log('[seed]: Colección Paintings eliminada correctamente');
+      console.log("[seed]: Colección Paintings eliminada correctamente");
     }
   })
-  .catch((error) => console.log('[seed]: Error eliminando la colección -->', error))
-  .then(async() => {
+  .catch((error) => console.log("[seed]: Error eliminando la colección -->", error))
+  .then(async () => {
     await Painting.insertMany(paintings);
-    console.log('[seed]: Nuevos cuadros añadidos con éxito');
+    console.log("[seed]: Nuevos cuadros añadidos con éxito");
   })
-  .catch((error) => console.log('[seed]: Error añadiendo los cuadros', error))
+  .catch((error) => console.log("[seed]: Error añadiendo los cuadros", error))
   .finally(() => mongoose.disconnect());

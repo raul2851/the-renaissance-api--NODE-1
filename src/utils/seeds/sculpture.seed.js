@@ -24,7 +24,7 @@ const sculptures = [
     img: "https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvYXBvbGxvLWRhcGhuZS1zZXB0ZW1iZXItMmEuanBnIiwicmVzaXplLDIwMDAsMjAwMCJdfQ.RRGdLkJVnSKISeYxxbRp33Ek2bSNydVSe4rxVSlDNLU.jpg",
     location: "Galería Borghese, Roma",
   },
- 
+
   {
     name: "El Rapto de Proserpina",
     sculptor: "Gian Lorenzo Bernini",

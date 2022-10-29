@@ -1,31 +1,31 @@
 const express = require("express");
 const Architecture = require("./architecture.model");
 const upload = require("../middlewares/file");
-const { deleteFile } = require('../../api/middlewares/deleteFile');
-const { isAuth, isAdmin } = require('../../api/middlewares/auth');
+const { deleteFile } = require("../../api/middlewares/deleteFile");
+const { isAuth, isAdmin } = require("../../api/middlewares/auth");
 const router = express.Router();
 require("dotenv").config();
 
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   try {
     const allArchitectures = await Architecture.find().lean();
     return res.status(200).json(allArchitectures);
   } catch (error) {
-    return res.status(500).json(error);
+    return next(error);
   }
 });
 
-router.get("/:id", [isAuth], async (req, res) => {
+router.get("/:id", [isAuth], async (req, res, next) => {
   try {
     const id = req.params.id;
     const architectureToFind = await Architecture.findById(id);
     return res.status(200).json(architectureToFind);
   } catch (error) {
-    return res.status(500).json(error);
+    return next(error);
   }
 });
 
-router.post("/create", [isAdmin], upload.single("img"), async (req, res) => {
+router.post("/create", [isAuth], upload.single("img"), async (req, res) => {
   try {
     const architecture = req.body;
     if (req.file) {
@@ -35,11 +35,13 @@ router.post("/create", [isAdmin], upload.single("img"), async (req, res) => {
     const architectureCreated = await newArchitecute.save();
     return res.status(200).json(architectureCreated);
   } catch (error) {
-    return res.status(500).json("Error al crear la nueva arquitectura, con esos planos se iba caer");
+    return res
+      .status(500)
+      .json("Error al crear la nueva arquitectura, con esos planos se iba caer");
   }
 });
 
-router.put("/edit/:id", [isAuth], upload.single("img"), async (req, res) => {
+router.put("/edit/:id", [isAuth], upload.single("img"), async (req, res, next) => {
   try {
     const id = req.params.id;
     const architecture = req.body;
@@ -56,18 +58,16 @@ router.put("/edit/:id", [isAuth], upload.single("img"), async (req, res) => {
       id,
       architectureModification
     );
-    return res
-      .status(200)
-      .json({
-        mensaje: "Se ha conseguido editar la arquitectura,¡la próxima hazlo bien desde el principio!",
-        architectureModificated: architectureModificated,
-      });
+    return res.status(200).json({
+      mensaje: "Se ha conseguido editar la arquitectura,¡la próxima hazlo bien desde el principio!",
+      architectureModificated: architectureModificated,
+    });
   } catch (error) {
-    return res.status(500).json("Error al editar la arquitectura");
+    return next(error);
   }
 });
 
-router.delete("/delete/:id", [isAuth], async (req, res) => {
+router.delete("/delete/:id", [isAdmin], async (req, res) => {
   try {
     const id = req.params.id;
     const architectureToDelete = await Architecture.findByIdAndDelete(id);
