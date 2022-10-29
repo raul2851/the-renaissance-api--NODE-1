@@ -5,7 +5,7 @@ require("dotenv").config();
 const sculptures = [
   {
     name: "María Magdale Penitente",
-    sculptor: "Donatell",
+    sculptor: "Donatello",
     year: 1453,
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Donatello%2C_maria_maddalena_03.JPG/1200px-Donatello%2C_maria_maddalena_03.JPG",
     location: "Museo dell'Opera del Duomo, Florencia",
