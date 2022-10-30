@@ -24,7 +24,7 @@ router.get("/:id", [isAuth], async (req, res, next) => {
   }
 });
 
-router.post("/create", [isAuth], upload.single("img"), async (req, res) => {
+router.post("/create", upload.single("img"), async (req, res) => {
   try {
     const sculpture = req.body;
     if (req.file) {

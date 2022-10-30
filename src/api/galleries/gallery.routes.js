@@ -6,7 +6,6 @@ const router = express.Router();
 router.get("/", async (req, res, next) => {
   try {
     const allGalleries = await Gallery.find().populate("paintings").populate("sculptures");
-    console.log(allGalleries);
     return res.status(200).json(allGalleries);
   } catch (error) {
     return next(error);

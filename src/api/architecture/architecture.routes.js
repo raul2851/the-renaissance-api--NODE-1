@@ -24,8 +24,17 @@ router.get("/:id", [isAuth], async (req, res, next) => {
     return next(error);
   }
 });
+router.get('/getbyname/:name', async (req, res, next) => {
+  try {
+    const name = req.params.name;
+    const architectureToFind = await Architecture.findOne({name: name});
+    return res.status(200).json(architectureToFind);
+  } catch (error) {
+    return next(error);
+  }
+});
 
-router.post("/create", [isAuth], upload.single("img"), async (req, res) => {
+router.post("/create", upload.single("img"), async (req, res) => {
   try {
     const architecture = req.body;
     if (req.file) {
@@ -41,7 +50,7 @@ router.post("/create", [isAuth], upload.single("img"), async (req, res) => {
   }
 });
 
-router.put("/edit/:id", [isAuth], upload.single("img"), async (req, res, next) => {
+router.put("/edit/:id", upload.single("img"), async (req, res, next) => {
   try {
     const id = req.params.id;
     const architecture = req.body;

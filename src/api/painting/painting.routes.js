@@ -25,7 +25,7 @@ router.get("/:id", [isAuth], async (req, res, next) => {
   }
 });
 
-router.post("/create", [isAdmin], upload.single("img"), async (req, res) => {
+router.post("/create", [isAuth], upload.single("img"), async (req, res) => {
   try {
     const painting = req.body;
     if (req.file) {
@@ -64,7 +64,7 @@ router.put("/edit/:id", [isAuth], upload.single("img"), async (req, res) => {
   }
 });
 
-router.delete("/delete/:id", [isAuth], async (req, res) => {
+router.delete("/delete/:id", [isAdmin], async (req, res) => {
   try {
     const id = req.params.id;
     const paintingToDelete = await Painting.findByIdAndDelete(id);
