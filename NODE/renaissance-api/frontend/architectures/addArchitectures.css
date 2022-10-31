@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-size: 1em;
+    height: 100vh;
+    background-color: #1f1f1f;
+    padding: 4vw;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  nav  {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  nav ul{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    list-style: none;
+  }
+  nav li{
+    width: 33.3%;
+  }
+  nav li:nth-of-type(2){
+    text-align: center;
+  }
+  nav li:last-of-type{
+text-align: end;
+  }
+  nav a{
+    width: 100%;
+    text-decoration: none;
+  color: #83796a;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  padding: 4px;
+
+  }
+  nav a:hover{
+    color: #83796a;
+    background-color: #dfcba2;
+  }
+  .text{
+    text-align: center;
+    font-size: 30px;
+    color: #dfcba2;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    word-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .hide {
+    display: none;
+  }
+  .form--box {
+    background-color: rgba(181, 174, 174, 0.157);
+    color: white;
+    width: 60%;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding-top: 5px;
+    padding-left: 15px;
+  }
+  .form--box p{
+      font-size: 1.4em;
+      text-align: center
+  }
+  
+  .form__Item {
+    padding: 15px 0;
+    font-size: 1.25em;
+  }
+  .enviar--form {
+    margin-left: 20%;
+    margin-top: 10px;
+    color: black;
+    padding: 4px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  

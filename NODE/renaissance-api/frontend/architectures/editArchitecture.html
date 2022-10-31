@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../favicon.ico/logo_museo_favi..png" />
+    <script src="./editArchitecture.js" defer></script>
+    <link rel="stylesheet" href="./addArchitectures.css" />
+    <title>Editar Arquitectura</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../index.html">HOME</a></li>
+        <li><a href="./architectures.html">EXPOSICIÓN DE ARQUITECTURAS</a></li>
+        <li><a href="./addArchitecture.html">AÑADIR ARQUITECTURA</a></li>
+      </ul>
+    </nav>
+    <p class="text">¿Quieres modificar algún dato de tus obras?</p>
+    <div class="select--box">
+        <select class="select"></select>
+        <button class="select--button">Empezar a editar </button>
+    </div>
+    <div class="form--box hide">
+      <p>- Introduce los datos de la Arquitectura que quieres modificar -</p>
+      <div class="form__Item">
+        <label>Nombre: </label>
+        <input type="text" class="name" />
+      </div>
+      <div class="form__Item">
+        <label>Url de Imagen: </label>
+        <input type="text" class="img" />
+      </div>
+      <div class="form__Item">
+        <label>Fecha: </label>
+        <input type="number" class="year" />
+      </div>
+      <div class="form__Item">
+        <label>Autor: </label>
+        <input type="text" class="architect" />
+      </div>
+      <div class="form__Item">
+        <label>Location: </label>
+        <input type="text" class="location" />
+      </div>
+      <button class="enviar--form">MODIFICAR ARQUITECTURA</button>
+    </div>
+  </body>
+</html>
