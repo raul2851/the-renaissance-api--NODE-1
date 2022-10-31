@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-size: 1em;
+  height: 100vh;
+  background-color: #1f1f1f;
+  padding: 4vw;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+header {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 15%;
+  object-fit: contain;
+  padding-right: 60px;
+}
+.logo img {
+  height: 100%;
+  width: 100%;
+}
+h1 {
+  text-align: center;
+  font-size: 30px;
+  color: #dfcba2;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  word-spacing: 4px;
+  text-transform: uppercase;
+}
+nav{
+    width: 100%;
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+nav a {
+    text-decoration: none;
+    color: #83796a;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    padding: 4px;
+}
+nav a:hover{
+    color: #83796a;
+    background-color: #dfcba2;
+}
+.title {
+  display: flex;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.title h3 {
+  padding-right: 5px;
+  color: #83796a;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+.sectionP {
+  padding-right: 5px;
+  color: #83796a;
+}
+.sectionS {
+  padding-right: 5px;
+  color: #83796a;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 20px;
+}
+.paintingBox,
+.sculptureBox {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  column-gap: 10px;
+  row-gap: 30px;
+  margin: 0;
+}
+
+.cuadro {
+  background-color: rgba(181, 174, 174, 0.157);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid #83796a;
+  color: #83796a;
+  cursor: pointer;
+  padding: 15px;
+  width: 80%;
+  min-height: 300px;
+  height: 380px;
+  max-width: 300px;
+}
+.cuadro:hover{
+    transform: scale(1.02);
+}
+.workName{
+    text-align: center;
+}
+.imgContainer {
+  width: 100%;
+  height: 200px;
+  max-height: 200px;
+  min-height: 200px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: justify;
+}
+.painter,
+.sculptor {
+  padding-bottom: 5px;
+}
+.location {
+  padding-bottom: 5px;
+}
+
+.painter::before,
+.sculptor::before {
+  content: "Autor: ";
+  font-weight: bold;
+
+}
+.location::before {
+  content: "Localización: ";
+  font-weight: bold;
+
+}
+.year::before {
+  content: "Año: ";
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+footer ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    width: 80%;
+}
+footer ul li{
+    width: 25%;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: center;
+
+}
+footer a{
+    text-decoration: none;
+    text-align: center;
+    color: #83796a;
+    font-size: 1em;
+    width: 100%;
+}
+footer a:hover{
+    transform: scale(1.1);
+}
